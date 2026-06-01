@@ -153,6 +153,7 @@ def generate_m3u(result_channels):
     with open(filepath, 'w', encoding='utf-8') as f:
         f.write('#EXTM3U\n')
         for channel_name, sources in result_channels.items():
+            print("channel_name: " + channel_name + " / sources: " + sources)
             if not sources:
                 continue
             for url, speed in sources:
