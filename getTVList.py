@@ -6,7 +6,7 @@ from concurrent.futures import ThreadPoolExecutor, as_completed
 from urllib.parse import quote
 
 # 配置参数
-OUTPUT_DIR = "list"          # 输出目录
+OUTPUT_DIR = "output"          # 输出目录
 OUTPUT_FILE = "live_sources.m3u"  # 输出文件名
 MAX_SOURCES_PER_CHANNEL = 5   # 每个频道保留的最快源数量
 TIMEOUT = 5                   # 连接和读取超时时间（秒）
