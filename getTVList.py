@@ -134,7 +134,7 @@ def process_channels(channels):
         # 按速度降序排序
         valid_sources.sort(key=lambda x: x[1], reverse=True)
 
-        print("还有源个数：" + len(valid_sources))
+        print("还有源个数：{len(valid_sources)}")
         
         # 保留前 N 个最快的源
         result_channels[channel_name] = valid_sources[:MAX_SOURCES_PER_CHANNEL]
