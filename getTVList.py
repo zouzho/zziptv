@@ -33,6 +33,7 @@ def fetch_live_sources():
             response = requests.get(url, timeout=10)
             if response.status_code == 200:
                 m3u_content += response.text + "\n"
+                print("共获取直播源{len(m3u_content)} 个" + url)
         except Exception as e:
             print(f"获取 {url} 失败: {e}")
             
