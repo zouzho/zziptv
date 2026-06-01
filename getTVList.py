@@ -6,7 +6,7 @@ from concurrent.futures import ThreadPoolExecutor, as_completed
 from urllib.parse import quote
 
 # 配置参数
-OUTPUT_DIR = "统计表"          # 输出目录
+OUTPUT_DIR = ""          # 输出目录
 OUTPUT_FILE = "live_sources.m3u"  # 输出文件名
 MAX_SOURCES_PER_CHANNEL = 5   # 每个频道保留的最快源数量
 TIMEOUT = 5                   # 连接和读取超时时间（秒）
@@ -20,7 +20,9 @@ def fetch_live_sources():
     """
     print("正在从远程仓库获取最新直播源...")
     urls = [
-        "https://raw.githubusercontent.com/YanG-1989/m3u/main/Gather.m3u",
+        "https://t.freetv.fun/m3u/playlist.m3u",
+        "https://t.freetv.fun/m3u/playlist_all.m3u",
+        "https://t.freetv.fun/m3u/playlist_ipv6.m3u",
         "https://iptv-org.github.io/iptv/countries/cn.m3u"
     ]
     
