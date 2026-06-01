@@ -9,9 +9,9 @@ from urllib.parse import quote
 OUTPUT_DIR = "output"          # 输出目录
 OUTPUT_FILE = "live_sources.m3u"  # 输出文件名
 MAX_SOURCES_PER_CHANNEL = 5   # 每个频道保留的最快源数量
-TIMEOUT = 5                   # 连接和读取超时时间（秒）
+TIMEOUT = 10                   # 连接和读取超时时间（秒）
 TEST_SIZE = 1024 * 75        # 测速下载的字节数 (512KB --> 75KB)
-MAX_WORKERS = 50              # 并发线程数
+MAX_WORKERS = 10              # 并发线程数
 
 def fetch_live_sources():
     """
