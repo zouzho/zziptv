@@ -34,7 +34,7 @@ def fetch_live_sources():
             if response.status_code == 200:
                 print("response.text : " + response.text)
                 m3u_content += response.text + "\n"
-                print("共获取直播源{len(m3u_content)} 个" + url)
+                print(f"共获取直播源{len(m3u_content)} 个" + url)
         except Exception as e:
             print(f"获取 {url} 失败: {e}")
             
@@ -134,7 +134,7 @@ def process_channels(channels):
         # 按速度降序排序
         valid_sources.sort(key=lambda x: x[1], reverse=True)
 
-        print("还有源个数：{len(valid_sources)}")
+        print(f"还有源个数：{len(valid_sources)}")
         
         # 保留前 N 个最快的源
         result_channels[channel_name] = valid_sources[:MAX_SOURCES_PER_CHANNEL]
