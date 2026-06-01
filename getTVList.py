@@ -176,10 +176,10 @@ def main():
     print(f"共获取到 {len(channels)} 个频道分类，开始测速筛选...\n")
     
     # 2. 测速与筛选
-    result_channels = process_channels(channels)
+    # result_channels = process_channels(channels)
     
     # 3. 生成文件
-    generate_m3u(result_channels)
+    generate_m3u(channels)
 
 if __name__ == "__main__":
     main()
