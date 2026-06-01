@@ -130,7 +130,7 @@ def process_channels(channels):
             for future in as_completed(future_to_url):
                 url, speed, status = future.result()
                 print(f"实时测速 url: {url} / speed: {speed}")
-                if speed > 0: # 仅保留可用且测到速度的源
+                if speed >= 0: # 仅保留可用且测到速度的源
                     valid_sources.append((url, speed))
         
         # 按速度降序排序
@@ -176,10 +176,10 @@ def main():
     print(f"共获取到 {len(channels)} 个频道分类，开始测速筛选...\n")
     
     # 2. 测速与筛选
-    # result_channels = process_channels(channels)
+    result_channels = process_channels(channels)
     
     # 3. 生成文件
-    generate_m3u(channels)
+    generate_m3u(result_channels)
 
 if __name__ == "__main__":
     main()
