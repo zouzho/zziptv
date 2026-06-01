@@ -129,7 +129,7 @@ def process_channels(channels):
             future_to_url = {executor.submit(test_speed, url): url for url in unique_urls}
             for future in as_completed(future_to_url):
                 url, speed, status = future.result()
-                print("实时测速 url: " + url + " / speed: " + speed)
+                print(f"实时测速 url: {url} / speed: {speed}")
                 if speed > 0: # 仅保留可用且测到速度的源
                     valid_sources.append((url, speed))
         
