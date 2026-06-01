@@ -29,6 +29,7 @@ def fetch_live_sources():
     m3u_content = ""
     for url in urls:
         try:
+            print("开始解析：" + url)
             response = requests.get(url, timeout=10)
             if response.status_code == 200:
                 m3u_content += response.text + "\n"
@@ -160,6 +161,7 @@ def generate_m3u(result_channels):
 
 def main():
     # 1. 获取直播源
+    print("开始拉取并解析直播源 ... fetch_live_sources")
     channels = fetch_live_sources()
     if not channels:
         return
