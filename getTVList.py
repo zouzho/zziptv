@@ -20,9 +20,9 @@ def fetch_live_sources():
     """
     print("正在从远程仓库获取最新直播源...")
     urls = [
-        "https://t.freetv.fun/m3u/playlist.m3u",
-        "https://t.freetv.fun/m3u/playlist_all.m3u",
-        "https://t.freetv.fun/m3u/playlist_ipv6.m3u",
+        "https://t.freetv.fun/m3u/playlist.txt",
+        "https://t.freetv.fun/m3u/playlist_all.txt",
+        "https://t.freetv.fun/m3u/playlist_ipv6.txt",
         "https://iptv-org.github.io/iptv/countries/cn.m3u"
     ]
     
