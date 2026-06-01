@@ -20,9 +20,9 @@ def fetch_live_sources():
     """
     print("正在从远程仓库获取最新直播源...")
     urls = [
-        "https://t.freetv.fun/m3u/playlist.m3u",
-        "https://t.freetv.fun/m3u/playlist_all.m3u",
-        "https://t.freetv.fun/m3u/playlist_ipv6.m3u",
+        #"https://t.freetv.fun/m3u/playlist.m3u",
+        #"https://t.freetv.fun/m3u/playlist_all.m3u",
+        #"https://t.freetv.fun/m3u/playlist_ipv6.m3u",
         "https://iptv-org.github.io/iptv/countries/cn.m3u"
     ]
     
@@ -32,6 +32,7 @@ def fetch_live_sources():
             print("开始解析：" + url)
             response = requests.get(url, timeout=10)
             if response.status_code == 200:
+                print("response.text : " + response.text)
                 m3u_content += response.text + "\n"
                 print("共获取直播源{len(m3u_content)} 个" + url)
         except Exception as e:
