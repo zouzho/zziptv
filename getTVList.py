@@ -20,10 +20,10 @@ def fetch_live_sources():
     """
     print("正在从远程仓库获取最新直播源...")
     urls = [
-        #"https://t.freetv.fun/m3u/playlist.m3u",
+        "https://t.freetv.fun/m3u/playlist.m3u"
         #"https://t.freetv.fun/m3u/playlist_all.m3u",
         #"https://t.freetv.fun/m3u/playlist_ipv6.m3u",
-        "https://iptv-org.github.io/iptv/countries/cn.m3u"
+        #"https://iptv-org.github.io/iptv/countries/cn.m3u"
     ]
     
     m3u_content = ""
@@ -128,13 +128,14 @@ def process_channels(channels):
             future_to_url = {executor.submit(test_speed, url): url for url in unique_urls}
             for future in as_completed(future_to_url):
                 url, speed, status = future.result()
+                print("实时测速 url: " + url + " / speed: " + speed)
                 if speed > 0: # 仅保留可用且测到速度的源
                     valid_sources.append((url, speed))
         
         # 按速度降序排序
         valid_sources.sort(key=lambda x: x[1], reverse=True)
 
-        print(f"还有源个数：{len(valid_sources)}")
+        print(f"有效源个数：{len(valid_sources)}")
         
         # 保留前 N 个最快的源
         result_channels[channel_name] = valid_sources[:MAX_SOURCES_PER_CHANNEL]
