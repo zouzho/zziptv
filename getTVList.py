@@ -2,7 +2,10 @@ import requests
 import re
 
 # 源地址
-SOURCE_URL = "https://raw.githubusercontent.com/vbskycn/iptv/refs/heads/master/tv/iptv4.m3u"
+SOURCE_URL = [
+    "https://raw.githubusercontent.com/vbskycn/iptv/refs/heads/master/tv/iptv4.m3u",
+    "https://raw.githubusercontent.com/vbskycn/iptv/refs/heads/master/tv/iptv6.m3u"
+]
 # 输出文件名
 OUTPUT_FILE = "iptv.m3u"
 
@@ -33,14 +36,12 @@ def update_m3u():
         for i in range(len(lines)):
             line = lines[i].strip()
             if line.startswith("#EXTINF"):
-                # 检查频道名是否包含关键词
-                if any(keyword in line for keyword in KEYWORDS):
-                    # 如果匹配，保留这一行（频道信息）
-                    filtered_lines.append(line)
-                    # 并且保留下一行（播放链接）
-                    if i + 1 < len(lines):
-                        url_line = lines[i+1].strip()
-                        filtered_lines.append(url_line)
+                # 如果匹配，保留这一行（频道信息）
+                filtered_lines.append(line)
+                # 并且保留下一行（播放链接）
+                if i + 1 < len(lines):
+                    url_line = lines[i+1].strip()
+                    filtered_lines.append(url_line)
         
         # 写入文件
         with open(OUTPUT_FILE, "w", encoding="utf-8") as f:
