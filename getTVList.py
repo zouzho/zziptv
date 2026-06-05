@@ -11,6 +11,7 @@ OUTPUT_FILE = "iptv.m3u"
 
 def update_m3u():
     try:
+        all_text = ""
         for SOURCE_URL in urls:
             print(f"正在拉取: {SOURCE_URL}")
             response = requests.get(SOURCE_URL, timeout=30)
@@ -33,12 +34,13 @@ def update_m3u():
                     if i + 1 < len(lines):
                         url_line = lines[i+1].strip()
                         filtered_lines.append(url_line)
+            all_text += filtered_lines
             
-            # 写入文件
-            with open(OUTPUT_FILE, "w", encoding="utf-8") as f:
-                f.write('\n'.join(filtered_lines))
-                
-            print(f"更新成功！共筛选出 {len(filtered_lines)//2} 个频道。")
+        # 写入文件
+        with open(OUTPUT_FILE, "w", encoding="utf-8") as f:
+            f.write('\n'.join(all_text))
+            
+        print(f"更新成功！共筛选出 {len(all_text)//2} 个频道。")
 
     except Exception as e:
         print(f"更新失败: {e}")
