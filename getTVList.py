@@ -5,8 +5,8 @@ import re
 # 源地址
 urls = [
     "https://raw.githubusercontent.com/vbskycn/iptv/refs/heads/master/tv/iptv4.m3u",
-    "https://live.hacks.tools/tv/ipv4/categories/央视频道.m3u",
-    "https://live.hacks.tools/tv/ipv4/categories/央视频道.txt"
+    "https://live.iptv-free.com/iptv/categories/general.m3u",
+    "https://live.iptv-free.com/iptv/categories/movies.m3u"
 ]
 # 输出文件名
 OUTPUT_FILE = "iptv.m3u"
