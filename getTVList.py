@@ -5,6 +5,7 @@ import re
 # 源地址
 urls = [
     "https://raw.githubusercontent.com/vbskycn/iptv/refs/heads/master/tv/iptv4.m3u",
+    "https://raw.githubusercontent.com/vbskycn/iptv/refs/heads/master/tv/iptv6.m3u",
     "https://live.iptv-free.com/iptv/categories/general.m3u",
     "https://live.iptv-free.com/iptv/categories/movies.m3u"
 ]
